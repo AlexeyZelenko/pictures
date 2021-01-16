@@ -8,7 +8,9 @@
     "deploy firebase hosting": "firebase --only hosting deploy"
   },
   "dependencies": {
+    "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta1",
+    "firebase": "^8.1.2",
     "vue": "^3.0.4",
     "vue-router": "^4.0.3"
   },

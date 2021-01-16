@@ -4,6 +4,23 @@ import router from './router'
 import './index.css'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import firebase from 'firebase'
+import 'firebase/firestore'
+import 'firebase/database'
+import 'firebase/auth'
+import 'firebase/storage'
+
+export const db = firebase.initializeApp({
+    apiKey: "AIzaSyDdvvv2AW6ep9bgevQs33LZ1TFfUQ-LiEc",
+    authDomain: "pictures-ca6a4.firebaseapp.com",
+    projectId: "pictures-ca6a4",
+    storageBucket: "pictures-ca6a4.appspot.com",
+    messagingSenderId: "1043807520017",
+    appId: "1:1043807520017:web:51cae3be23c2ffcfc438b0",
+    measurementId: "G-1G7NVX0X3V"
+}).firestore()
+
+export const storage = firebase.storage()
 
 const app = createApp(App)
 app.use(router)
