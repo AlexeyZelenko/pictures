@@ -15,8 +15,23 @@ const routes = [
     {
         path: '/edit_picture/:id',
         name: 'edit_picture',
-        component: () => import('../views/EditPicture.vue')
-    }
+        component: () => import('../views/DetailsPicture.vue')
+    },
+    {
+        path: '/add_picture',
+        name: 'add_picture',
+        component: () => import('../views/AddPicture.vue')
+    },
+    {
+        path: '/list_picture',
+        name: 'list_picture',
+        component: () => import('../views/ListPictures.vue')
+    },
+    {
+        path: '/edit/:id',
+        name: 'edit',
+        component: () => import('../views/EditPictures.vue')
+    },
 ]
 
 const router = createRouter({

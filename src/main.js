@@ -4,11 +4,16 @@ import router from './router'
 import './index.css'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+// import * as firebase from 'firebase'
 import firebase from 'firebase'
 import 'firebase/firestore'
 import 'firebase/database'
 import 'firebase/auth'
 import 'firebase/storage'
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
+// import { firestorePlugin } from 'vuefire'
 
 export const db = firebase.initializeApp({
     apiKey: "AIzaSyDdvvv2AW6ep9bgevQs33LZ1TFfUQ-LiEc",
@@ -22,6 +27,13 @@ export const db = firebase.initializeApp({
 
 export const storage = firebase.storage()
 
+// Настройки Sweetalert2
+const options = {
+    confirmButtonColor: '#41b882',
+    cancelButtonColor: '#ff7674'
+}
+
 const app = createApp(App)
+app.use(VueSweetalert2, options)
 app.use(router)
 app.mount('#app')

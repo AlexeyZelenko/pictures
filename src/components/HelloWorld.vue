@@ -5,13 +5,13 @@
 				<div class="col">
 					<div class="card h-100">
 						<img
-								:src=picture.image
+								:src=`https://drive.google.com/uc?export=view&id=${picture.imageCode}`
 								:class=picture.class
 								alt=""
 						>
 						<div class="card-body">
 							<h5 class="card-title">{{picture.title}}</h5>
-							<p class="card-text">{{picture.price}}</p>
+							<p class="card-text">{{picture.price}} $</p>
 						</div>
 						<router-link
 								style="margin-bottom: 10px;"
@@ -46,6 +46,7 @@ export default {
                     title: doc.data().title,
                     price: doc.data().price,
                     image: doc.data().image,
+                    imageCode: doc.data().imageCode,
                     description: doc.data().description,
                 })
             })

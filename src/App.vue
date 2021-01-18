@@ -8,7 +8,7 @@
 				<h1>
 					ROMAN KRAVCHUK
 				</h1>
-				<h3 style="margin-bottom: 50px">АВТОРСЬКІ КАРТИНИ</h3>
+				<h4>АВТОРСЬКІ КАРТИНИ</h4>
 <!--				<a-->
 <!--						class="btn btn-outline-light btn-lg"-->
 <!--						@click="showModal = true"-->
@@ -60,6 +60,24 @@
 							Про мене
 						</router-link>
 					</li>
+					<li class="nav-item">
+						<router-link
+								to="/add_picture"
+								class="nav-link"
+								aria-current="page"
+						>
+							Додати картину
+						</router-link>
+					</li>
+					<li class="nav-item">
+						<router-link
+								to="/list_picture"
+								class="nav-link"
+								aria-current="page"
+						>
+							Список картин
+						</router-link>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -99,6 +117,12 @@ export default {
 		margin:10% 10%;
 		text-shadow: 0 0 10px black;
 	}
+	.overlay h4 {
+		text-align:center;
+		color: #a08e8e;
+		margin:10% 10%;
+		text-shadow: 0 0 10px black;
+	}
 	iframe {
 		width: 100%;
 		height: 640px;
@@ -129,17 +153,14 @@ export default {
 			width: 100%;
 			height: 400px;
 		}
-		td h3 {
-			font-size: 16px;
-		}
 		.fullscreen-bg {
 			height: 200px;
-			/*background: url('../assets/images/jumbotron.png') center center / cover no-repeat;*/
-			/*padding-top: 100%;*/
+			background: url('./assets/jumbotron.jpg') center center / cover no-repeat;
+			padding-top: 100%;
 		}
-		/*.fullscreen-bg__video {*/
-		/*	display: none;*/
-		/*}*/
+		.fullscreen-bg__video {
+			display: none;
+		}
 		.overlay h1 {
 			text-align:center;
 			color:#fff;
