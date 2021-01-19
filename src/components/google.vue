@@ -1,5 +1,4 @@
 <template>
-	<p>123</p>
 	<ul class="navbar-nav mr-2 mb-2 mb-lg-0">
 		<!-- Avatar -->
 		<span
@@ -7,7 +6,12 @@
 				style="font-size:30px; cursor:pointer; color: #bd5c5c; margin-right: 10px"
 				@click="openNav"
 		>
-      ☰
+      <button
+					type="button"
+					class="btn btn-outline-success"
+			>
+				Адмінка
+			</button>
     </span>
 		<li
 				style="color: #3c8baf; margin-right: 5px"
@@ -28,20 +32,24 @@
 			/>
 		</li>
 		<li>
-			<i
-					style="color: grey; cursor: pointer"
+			<button
 					v-if="!adminEntrance"
 					@click="signInWithGoogle"
-					class="fas fa-user-circle fa-2x"
-			></i>
+					type="button"
+					class="btn btn-outline-primary"
+			>
+				Увійти
+			</button>
 		</li>
 		<li>
-			<i
-					style="color: grey; cursor: pointer"
+			<button
 					v-if="adminEntrance"
 					@click="logout"
-					class="fas fa-sign-out-alt fa-2x"
-			></i>
+					type="button"
+					class="btn btn-outline-primary"
+			>
+				Вийти
+			</button>
 		</li>
 
 		<!--    Боковое меню-->
@@ -63,9 +71,15 @@
 			</router-link>
 			<router-link
 					class="dropdown-item"
+					to="/list_picture"
+					exact
+			>Список картин
+			</router-link>
+			<router-link
+					class="dropdown-item"
 					to="/add_picture"
 					exact
-			>Додати категорію фото
+			>Додати картину
 			</router-link>
 			<a
 					class="dropdown-item"
@@ -96,7 +110,6 @@
         },
         setup () {
             const adminEntrance = computed(() => store.state.adminEntrance)
-            console.log('adminEntrance', adminEntrance.value)
             const signInWithGoogle = () => {
                 try {
                     store.dispatch('signInWithGoogle')
@@ -109,7 +122,6 @@
             }
 
             const getUserName = computed(() => firebase.auth().currentUser.displayName)
-            console.log(getUserName)
             const getProfilePicUrl = computed(() => firebase.auth().currentUser.photoURL)
             return {
                 getProfilePicUrl,

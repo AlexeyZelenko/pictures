@@ -1,5 +1,5 @@
 <template>
-	<h1>Тут буде детальна інфо про картину...</h1>
+	<h1>Детальна інфо про картину</h1>
 	<div class="row">
 		<div class="col align-self-center">
 			<div class="card" style="border: none">
@@ -15,7 +15,7 @@
 							>
 						</div>
 						<h5 class="card-title mt-md-2">{{picture.title}}</h5>
-						<p class="card-text">{{picture.price}}</p>
+						<p class="card-text">{{picture.price}}$</p>
 						<p class="card-text"><small class="text-muted">{{picture.description}}</small></p>
 					</div>
 				</div>

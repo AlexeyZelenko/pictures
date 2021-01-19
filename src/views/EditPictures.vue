@@ -10,7 +10,7 @@
 			>
 				<div class="form-group">
 					<label>Назва картини</label>
-					<p>{{picture.title}}</p>
+					<p style="color: blueviolet">{{picture.title}}</p>
 					<!--          <input-->
 					<!--            type="text"-->
 					<!--            class="form-control"-->
@@ -51,7 +51,7 @@
 					<input
 							type="text"
 							class="form-control"
-							v-model="picture.image"
+							v-model="picture.imageCode"
 							required
 					>
 				</div>
@@ -108,58 +108,11 @@
                     text: '',
                     showConfirmButton: false
                 })
-
-                // ЗАГРУЗКА ФОТО
-                // const promises = []
-                // const promisesName = []
-                // const File = this.File
-								//
-                // if (File) {
-                //     for (let i = 0; i < File.length; i++) {
-                //         const storageRef = firebase.storage().ref()
-                //         // Загрузить файл и метаданные в объект 'assets/images/***.jpg'
-								//
-                //         // Создайте метаданные файла
-                //         const metadata = {
-                //             contentType: 'image/jpeg'
-                //         }
-                //         const nameTime = +new Date() + '.jpg'
-                //         // ПРОВЕРКА ЗАГРУЗКИ ФОТО
-								//
-                //         await storageRef.child(`${this.photo.name}/` + nameTime)
-                //         try {
-                //             await storageRef.child(`${this.photo.name}/` + nameTime).put(File[i], metadata)
-                //         } catch (e) {
-                //             console.log(e.message)
-                //         }
-								//
-                //         try {
-                //             promises.push(
-                //                 await storageRef.child(`${this.photo.name}/` + nameTime).getDownloadURL()
-                //             )
-                //             promisesName.push(
-                //                 nameTime
-                //             )
-                //         } catch (e) {
-                //             console.log(e.message)
-                //         }
-                //     }
-                // }
-								//
-                // const NameImages = await Promise.all(promisesName)
-                // const URLs = await Promise.all(promises)
-                // const ArrayOld = await this.photo.arrayImages
-                // const NameImagesOld = await this.photo.NameImages
-                // const ArrayFile = [...URLs, ...ArrayOld]
-                // const ArrayNameImages = [...NameImages, ...NameImagesOld]
-								//
-                // event.preventDefault()
                 db.collection('pictures').doc(this.$route.params.id)
                     .update({
                         title: this.picture.title,
                         description: this.picture.description,
                         imageCode: this.picture.imageCode,
-                        image: this.picture.image,
                         price: this.picture.price,
                     })
                     .then(() => {
@@ -179,7 +132,7 @@
                     this.$swal('Успішно оновлено!!!')
                     this.photo.title = ''
                     this.photo.description = ''
-                    this.photo.image = ''
+                    this.photo.imageCode = ''
                     this.photo.price = ''
                 } catch (error) {
                     console.log(error)
@@ -188,3 +141,9 @@
         }
     })
 </script>
+
+<style>
+	label {
+		color: #1393ae;
+	}
+</style>

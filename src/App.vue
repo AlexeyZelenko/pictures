@@ -1,5 +1,10 @@
 <template>
-	<!--    ВидеоОбложка-->
+	<!--		ЛОКАЛИЗАЦИЯ-->
+	<SwitchLanguage />
+	<Multilingual />
+	<div>
+	</div>
+		<!--    ВидеоОбложка-->
 	<div class="fullscreen-bg">
 		<div class="overlay">
 			<div
@@ -9,12 +14,6 @@
 					ROMAN KRAVCHUK
 				</h1>
 				<h4>АВТОРСЬКІ КАРТИНИ</h4>
-<!--				<a-->
-<!--						class="btn btn-outline-light btn-lg"-->
-<!--						@click="showModal = true"-->
-<!--						role="button"-->
-<!--				>Подивитися роботи-->
-<!--				</a>-->
 			</div>
 		</div>
 		<video
@@ -60,24 +59,6 @@
 							Про мене
 						</router-link>
 					</li>
-					<li class="nav-item">
-						<router-link
-								to="/add_picture"
-								class="nav-link"
-								aria-current="page"
-						>
-							Додати картину
-						</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link
-								to="/list_picture"
-								class="nav-link"
-								aria-current="page"
-						>
-							Список картин
-						</router-link>
-					</li>
 				</ul>
 				<!--ВХОД ЧЕРЕЗ ГУГЛ АККАУНТ-->
 				<google></google>
@@ -92,16 +73,34 @@
 
 <script>
 import { defineAsyncComponent } from 'vue'
+import Multilingual from './components/Multilingual.vue'
+import SwitchLanguage from './components/SwitchLanguage.vue'
 import HelloWorld from './components/HelloWorld.vue'
 import google from './components/google.vue'
+import {mapActions, mapGetters} from 'vuex'
 // const google = defineAsyncComponent(() => import('./components/auth/google.vue'))
 
 export default {
   name: 'App',
   components: {
+      Multilingual,
+		SwitchLanguage,
     HelloWorld,
       google
-  }
+  },
+    computed: {
+        ...mapGetters([
+            'LOCALE_CHANGE',
+        ]),
+    },
+    methods: {
+        ...mapActions([
+            'LOCALIZE'
+        ]),
+        changeLocale(loc) {
+            this.LOCALIZE(loc)
+        },
+    },
 }
 </script>
 

@@ -12,8 +12,37 @@ import 'firebase/auth'
 import 'firebase/storage'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
+import { createI18n } from 'vue-i18n'
 
 // import { firestorePlugin } from 'vuefire'
+
+const messages = {
+    en: {
+        message: {
+            value: 'This is an example of content translation.'
+        }
+    },
+    be: {
+        message: {
+            value: 'Гэта прыклад перакладу змесціва.'
+        }
+    },
+    da: {
+        message: {
+            value: 'Dette er et eksempel på oversættelse af indhold.'
+        }
+    },
+    hr: {
+        message: {
+            value: 'Ovo je primjer prevođenja sadržaja.'
+        }
+    }
+};
+
+const i18n = createI18n({
+    locale: 'en',
+    messages
+});
 
 export const db = firebase.initializeApp({
     apiKey: "AIzaSyDdvvv2AW6ep9bgevQs33LZ1TFfUQ-LiEc",
@@ -38,4 +67,5 @@ const app = createApp(App)
 app.use(VueSweetalert2, options)
 app.use(router)
 app.use(store)
+app.use(i18n)
 app.mount('#app')
