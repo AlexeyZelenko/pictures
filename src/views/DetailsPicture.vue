@@ -1,5 +1,4 @@
 <template>
-	<h1>Детальна інфо про картину</h1>
 	<div class="row">
 		<div class="col align-self-center">
 			<div class="card" style="border: none">

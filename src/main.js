@@ -13,35 +13,17 @@ import 'firebase/storage'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import { createI18n } from 'vue-i18n'
-
-// import { firestorePlugin } from 'vuefire'
-
-const messages = {
-    en: {
-        message: {
-            value: 'This is an example of content translation.'
-        }
-    },
-    be: {
-        message: {
-            value: 'Гэта прыклад перакладу змесціва.'
-        }
-    },
-    da: {
-        message: {
-            value: 'Dette er et eksempel på oversættelse af indhold.'
-        }
-    },
-    hr: {
-        message: {
-            value: 'Ovo je primjer prevođenja sadržaja.'
-        }
-    }
-};
+import en from "./locale/en.json"
+import ua from "./locale/ua.json"
+import ru from "./locale/ru.json"
 
 const i18n = createI18n({
     locale: 'en',
-    messages
+    messages: {
+        en,
+        ua,
+        ru
+    }
 });
 
 export const db = firebase.initializeApp({

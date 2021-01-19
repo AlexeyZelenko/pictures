@@ -24,7 +24,7 @@
 									type="button"
 									class="btn btn-outline-success"
 							>
-								детальніше
+								{{ $t('more_details.value', { value: 'детальніше' }) }}
 							</button>
 						</router-link>
 					</div>

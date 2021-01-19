@@ -1,0 +1,38 @@
+{
+  "message": {
+    "value": "English"
+  },
+  "title": {
+    "value": "AUTHOR'S PICTURES"
+  },
+  "pictures": {
+    "value": "Pictures"
+  },
+  "About_me": {
+    "value": "About me"
+  },
+  "Go_away": {
+    "value": "Sign"
+  },
+  "more_details": {
+    "value": "more details"
+  },
+  "address": {
+    "value": "Ukraine, Cherkasy"
+  },
+  "study1": {
+    "value": "Studied a master artist of the art tree at the Kosovo Institute of Applied and Decorative Arts"
+  },
+  "study2": {
+    "value": "He studied at NAOMA"
+  },
+  "study3": {
+    "value": "Chairman of the Union of Artists of Ukraine in Cherkasy in Hudozhnyk"
+  },
+  "study4": {
+    "value": "Married"
+  },
+  "study5": {
+    "value": "Lives in Ukraine, Cherkasy"
+  }
+}

@@ -5,16 +5,12 @@ import firebase from 'firebase/app'
 
 export default createStore({
     state: {
-        locale: 'ua-Ua',
         User_Entrance: false,
         userEntrance: false,
         adminEntrance: false,
         userId: null
     },
     mutations: {
-        CHANGE_LOCALE: (state, loc) => {
-            state.locale = loc;
-        },
         USER_ENTRANCE: (state, userEntrance) => {
             state.userEntrance = userEntrance
         },
@@ -26,9 +22,6 @@ export default createStore({
         }
     },
     actions: {
-        LOCALIZE({commit}, loc) {
-            commit('CHANGE_LOCALE', loc)
-        },
         async logout ({ commit }) {
             await firebase.auth().signOut()
                 .then(() => {
@@ -71,9 +64,6 @@ export default createStore({
         },
     },
     getters: {
-        LOCALE_CHANGE(state) {
-            return state.locale;
-        },
         USER_ID (state) {
             return state.userId
         },

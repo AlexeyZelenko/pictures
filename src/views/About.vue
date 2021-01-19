@@ -13,12 +13,27 @@
 
 							>
 						</div>
-						<h5 class="card-title mt-md-2">Roman Kravchuk</h5>
-						<p class="card-text">Вивчав художника-майстра з художнього дерева у Косівський інститут прикладного та декоратвиного мистецтва</p>
-						<p class="card-text">Навчався у НАОМА</p>
-						<p class="card-text">Голова спілки художників України м. Черкаси у Художник</p>
-						<p class="card-text">У шлюбі</p>
-						<p class="card-text"><small class="text-muted">Живе у Cherkasy</small></p>
+						<h5
+								class="card-title mt-md-2"
+								style="color: #2c790d"
+						>
+							Roman Kravchuk
+						</h5>
+						<p class="card-text">
+							{{ $t('study1.value', { value: 'Вивчав художника-майстра з художнього дерева у Косівський інститут прикладного та декоратвиного мистецтва' }) }}
+						</p>
+						<p class="card-text">
+							{{ $t('study2.value', { value: 'Навчався у НАОМА' }) }}
+						</p>
+						<p class="card-text">
+							{{ $t('study3.value', { value: 'Голова спілки художників України м. Черкаси у Художник' }) }}
+						</p>
+						<p class="card-text">
+							{{ $t('study4.value', { value: 'У шлюбі' }) }}
+						</p>
+						<p class="card-text"><small class="text-muted">
+							{{ $t('study5.value', { value: 'Живе в Україні м. Черкаси' }) }}
+						</small></p>
 					</div>
 				</div>
 			</div>

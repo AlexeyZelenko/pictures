@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<select v-model="$i18n.locale">
+		<select
+				class="select"
+				v-model="$i18n.locale"
+		>
 			<option
 					v-for="(lang, i) in langs"
 					:key="`lang-${i}`"
@@ -15,18 +18,20 @@
     export default {
         name: 'SwitchLocale',
         data() {
-            return { langs: ['en', 'be', 'da', 'hr'] }
+            return { langs: ['en', 'ru', 'ua'] }
         }
     }
 </script>
 
 <style>
-	select {
-		width: 150px;
+	.select {
+		width: 100px;
 		line-height: 49px;
-		height: 38px;
-		font-size: 22px;
+		height: 30px;
+		font-size: 20px;
 		outline: 0;
-		margin-bottom: 15px;
+		margin-top: 10px;
+		margin-bottom: 12px;
+		opacity: 0.4;
 	}
 </style>

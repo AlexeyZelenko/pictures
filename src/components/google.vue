@@ -38,7 +38,7 @@
 					type="button"
 					class="btn btn-outline-primary"
 			>
-				Увійти
+				{{ $t('Go_away.value', { value: 'Увійти' }) }}
 			</button>
 		</li>
 		<li>
@@ -73,7 +73,8 @@
 					class="dropdown-item"
 					to="/list_picture"
 					exact
-			>Список картин
+			>
+				Список картин
 			</router-link>
 			<router-link
 					class="dropdown-item"
