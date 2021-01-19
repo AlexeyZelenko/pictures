@@ -79,6 +79,8 @@
 						</router-link>
 					</li>
 				</ul>
+				<!--ВХОД ЧЕРЕЗ ГУГЛ АККАУНТ-->
+				<google></google>
 			</div>
 		</div>
 	</nav>
@@ -89,12 +91,16 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+import google from './components/google.vue'
+// const google = defineAsyncComponent(() => import('./components/auth/google.vue'))
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+      google
   }
 }
 </script>

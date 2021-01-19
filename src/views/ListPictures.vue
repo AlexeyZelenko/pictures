@@ -17,7 +17,7 @@
 						<td >
 							<img
 									style="max-width: 50px"
-									:src=`https://drive.google.com/uc?export=view&id=${picture.imageCode}`
+									:src="`https://drive.google.com/uc?export=view&id=${picture.imageCode}`"
 									alt=""
 							>
 						</td>

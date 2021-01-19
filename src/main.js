@@ -1,11 +1,11 @@
 import { createApp, reactive, provide } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import './index.css'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import * as firebase from 'firebase'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/database'
 import 'firebase/auth'
@@ -26,6 +26,7 @@ export const db = firebase.initializeApp({
 }).firestore()
 
 export const storage = firebase.storage()
+export const auth = firebase.auth()
 
 // Настройки Sweetalert2
 const options = {
@@ -36,4 +37,5 @@ const options = {
 const app = createApp(App)
 app.use(VueSweetalert2, options)
 app.use(router)
+app.use(store)
 app.mount('#app')

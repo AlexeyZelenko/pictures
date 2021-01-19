@@ -5,7 +5,7 @@
 				<div class="col">
 					<div class="card h-100">
 						<img
-								:src=`https://drive.google.com/uc?export=view&id=${picture.imageCode}`
+								:src="`https://drive.google.com/uc?export=view&id=${picture.imageCode}`"
 								:class=picture.class
 								alt=""
 						>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { db } from '../main'
 import firebase from 'firebase/app'
 import 'firebase/storage'
