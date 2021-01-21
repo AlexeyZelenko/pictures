@@ -18,7 +18,7 @@ import ua from "./locale/ua.json"
 import ru from "./locale/ru.json"
 
 const i18n = createI18n({
-    locale: 'en',
+    locale: 'ua',
     messages: {
         en,
         ua,
