@@ -56,11 +56,13 @@
 <script>
     import { ref } from 'vue'
     import { db } from '../main.js'
+    import { usePictures } from '../main'
     import 'firebase/storage'
     import firebase from 'firebase/app'
 
     export default {
         setup () {
+            const pictures = usePictures()
             const Pictures = ref([])
 
             db.collection('pictures').onSnapshot((snapshotChange) => {
@@ -79,23 +81,7 @@
 
             const deletePhoto = (picture) => {
                 if (window.confirm('Ви дійсно хочете видалити?')) {
-                    const File = picture.arrayImages
 
-                    if (File) {
-                        for (let i = 0; i < File.length; i++) {
-                            const storageRef = firebase.storage().ref()
-                            const nameTime = picture.NameImages[i]
-                            const Ref = storageRef.child(`${picture.name}/` + nameTime)
-
-                            Ref.delete()
-                                .then(() => {
-                                    console.log('удаление фото со всем объявлением')
-                                })
-                                .catch((error) => {
-                                    console.log(error)
-                                })
-                        }
-                    }
                     db.collection('pictures')
                         .doc(picture.key)
                         .delete()
@@ -108,6 +94,7 @@
                 }
             }
             return {
+                pictures,
                 Pictures,
                 deletePhoto
             }

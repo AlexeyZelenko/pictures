@@ -25,7 +25,7 @@
 
 <script>
     import {ref} from "vue";
-    import {db} from "../main";
+    import { db } from "../main";
     import firebase from 'firebase'
 
     export default {
@@ -33,7 +33,7 @@
         setup () {
             const picture = ref({})
             return {
-                picture
+                picture,
             }
         },
         created () {

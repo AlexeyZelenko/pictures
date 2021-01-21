@@ -16,6 +16,8 @@ import { createI18n } from 'vue-i18n'
 import en from "./locale/en.json"
 import ua from "./locale/ua.json"
 import ru from "./locale/ru.json"
+import { useFirestore } from '@vueuse/firebase'
+import { createGlobalState } from '@vueuse/core'
 
 const i18n = createI18n({
     locale: 'ua',
@@ -35,6 +37,10 @@ export const db = firebase.initializeApp({
     appId: "1:1043807520017:web:51cae3be23c2ffcfc438b0",
     measurementId: "G-1G7NVX0X3V"
 }).firestore()
+
+export const usePictures = createGlobalState(
+    () => useFirestore(db.collection('pictures')),
+)
 
 export const storage = firebase.storage()
 export const auth = firebase.auth()
