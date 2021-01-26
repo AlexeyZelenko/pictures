@@ -1,5 +1,19 @@
 <template>
 	<div class="row">
+		<router-link
+				style="text-decoration: none"
+				:to="{ name: 'Home'}"
+		>
+			<div class="d-grid gap-2">
+				<button
+						class="btn btn-primary"
+						type="button"
+				>
+					{{ $t('out.value', { value: 'на Головну' }) }}
+				</button>
+			</div>
+		</router-link>
+
 		<div class="col align-self-center">
 			<div class="card" style="border: none">
 				<div class="row row-cols-1 row-cols-md-1">
@@ -10,7 +24,6 @@
 									style="max-width: 400px"
 									:src=picture.image
 									alt=""
-
 							>
 						</div>
 						<h5 class="card-title mt-md-2">{{picture.title}}</h5>

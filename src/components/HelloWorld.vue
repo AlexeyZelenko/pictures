@@ -1,33 +1,18 @@
 <template>
 	<div class="container" style="margin-top: 50px">
 		<div class="row row-cols-1 row-cols-md-2 g-4">
-			<div v-for="picture in arrayPictures" :key="picture.title">
+			<div
+					class="col"
+					v-for="picture in arrayPictures"
+					:key="picture.title"
+			>
 				<div class="col">
-					<div
+					<router-link
+							style="text-decoration: none"
 							:to="{ name: 'edit_picture', params: { id: picture.key }}"
-							class="card h-100"
 					>
-						<img
-								:src="`https://drive.google.com/uc?export=view&id=${picture.imageCode}`"
-								:class=picture.class
-								alt=""
-						>
-						<div class="card-body">
-							<h5 class="card-title">{{picture.title}}</h5>
-							<p class="card-text">{{picture.price}} $</p>
-						</div>
-						<router-link
-								style="margin-bottom: 10px;"
-								:to="{ name: 'edit_picture', params: { id: picture.key }}"
-						>
-							<button
-									type="button"
-									class="btn btn-outline-success"
-							>
-								{{ $t('more_details.value', { value: 'детальніше' }) }}
-							</button>
-						</router-link>
-					</div>
+						<CategoriesPhotoCard :picture="picture" />
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -39,9 +24,13 @@ import { ref, reactive } from 'vue'
 import { db } from '../main'
 import firebase from 'firebase/app'
 import 'firebase/storage'
+import CategoriesPhotoCard from './CategoriesPhotoCard.vue'
 
 export default {
   name: 'HelloWorld',
+	components: {
+			CategoriesPhotoCard
+	},
 	setup () {
         const arrayPictures = ref([])
 
