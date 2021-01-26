@@ -1,9 +1,10 @@
 <template>
 	<div
 			ref="el"
-			class="card h-100"
+			class="card"
 	>
 		<img
+				class="imgStyle"
 				:src="isShown ? `https://drive.google.com/uc?export=view&id=${pictureImageCode}` : null"
 				alt=""
 		>
@@ -71,3 +72,10 @@
         }
     }
 </script>
+
+<style scoped>
+	.imgStyle {
+		/*height: 300px;*/
+		max-width: 100%;
+	}
+</style>

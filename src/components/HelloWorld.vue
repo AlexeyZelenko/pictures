@@ -1,17 +1,23 @@
 <template>
-	<div class="container" style="margin-top: 50px">
-		<div class="row row-cols-1 row-cols-md-2 g-4">
+	<div
+			class="container"
+			style="margin-top: 50px"
+	>
+		<div
+				class="row row-cols-1 row-cols-md-2 g-4 "
+				data-masonry='{"percentPosition": true }'
+		>
 			<div
 					class="col"
 					v-for="picture in arrayPictures"
-					:key="picture.title"
+					:key="picture.key"
 			>
 				<div class="col">
 					<router-link
 							style="text-decoration: none"
 							:to="{ name: 'edit_picture', params: { id: picture.key }}"
 					>
-						<CategoriesPhotoCard :picture="picture" />
+						<CategoriesPhotoCard :picture="picture"/>
 					</router-link>
 				</div>
 			</div>
@@ -55,4 +61,6 @@ export default {
   }
 }
 </script>
+
+
 

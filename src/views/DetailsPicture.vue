@@ -14,21 +14,42 @@
 			</div>
 		</router-link>
 
-		<div class="col align-self-center">
-			<div class="card" style="border: none">
+		<div
+				class="col align-self-center"
+		>
+			<div
+					class="card"
+					style="border: none"
+			>
 				<div class="row row-cols-1 row-cols-md-1">
 
 					<div class="card-body">
 						<div >
 							<img
-									style="max-width: 400px"
-									:src=picture.image
+									class="imgStyle"
+									:src="`https://drive.google.com/uc?export=view&id=${picture.imageCode}`"
 									alt=""
 							>
 						</div>
-						<h5 class="card-title mt-md-2">{{picture.title}}</h5>
-						<p class="card-text">{{picture.price}}$</p>
-						<p class="card-text"><small class="text-muted">{{picture.description}}</small></p>
+						<h5
+								class="card-title mt-md-2"
+						>
+							{{picture.title}}
+						</h5>
+						<p
+								class="card-text"
+						>
+							{{picture.price}}$
+						</p>
+						<p
+								class="card-text"
+						>
+							<small
+									class="text-muted"
+							>
+								{{picture.description}}
+							</small>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -61,5 +82,17 @@
 </script>
 
 <style scoped>
-
+	.imgStyle {
+		max-width: 80%;
+	}
+	@media (max-width: 767px) {
+		.imgStyle {
+			max-width: 90%;
+		}
+	}
+	@media (max-width: 575px) {
+		.imgStyle {
+			max-width: 90%;
+		}
+	}
 </style>
