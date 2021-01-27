@@ -10,12 +10,13 @@
 				style="justify-content: center"
 		>
 			<div class="col p-4" v-cloak>
-				<router-link
-						style="text-decoration: none"
-						:to="{ name: 'edit_picture', params: { id: picture.key }}"
-				>
-					<CategoriesPhotoCard :picture="picture"/>
-				</router-link>
+<!--				<router-link-->
+<!--						style="text-decoration: none"-->
+<!--						:to="{ name: 'edit_picture', params: { id: picture.key }}"-->
+<!--				>-->
+<!--					<CategoriesPhotoCard :picture="picture"/>-->
+<!--				</router-link>-->
+				<CategoriesPhotoCard :picture="picture"/>
 			</div>
 		</div>
 	</div>

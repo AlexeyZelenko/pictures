@@ -7,6 +7,7 @@
 					{{ $t('address.value', { value: 'Україна м. Черкаси' }) }}
 				</div>
 				<div class="brand">{{ new Date().getFullYear() }} — Roman Kravchuk</div>
+				<div class="brand">{{`+\n380962836665`}}</div>
 			</div>
 		</div>
 	</footer>
