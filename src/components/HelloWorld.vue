@@ -49,7 +49,6 @@ export default {
                     description: doc.data().description,
                 })
             })
-            console.log(arrayPictures.value)
         })
       return {
           arrayPictures,

@@ -4,6 +4,7 @@
 			class="card"
 	>
 		<ImageItem
+			class="opacity"
 			v-if="isShown"
 			:source="pictureImageCode"
 		/>
