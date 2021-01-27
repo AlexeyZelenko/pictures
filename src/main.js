@@ -19,6 +19,7 @@ import ru from "./locale/ru.json"
 import { useFirestore } from '@vueuse/firebase'
 import { createGlobalState } from '@vueuse/core'
 
+
 const i18n = createI18n({
     locale: 'ua',
     messages: {

@@ -3,11 +3,11 @@
 			ref="el"
 			class="card"
 	>
-		<img
-				class="imgStyle"
-				:src="isShown ? `https://drive.google.com/uc?export=view&id=${pictureImageCode}` : null"
-				alt=""
-		>
+		<ImageItem
+			v-if="isShown"
+			:source="pictureImageCode"
+		/>
+
 		<div class="card-body">
 			<h5 class="card-title">{{pictureTitle}}</h5>
 			<p class="card-text">{{picturePrice}} $</p>
@@ -29,19 +29,24 @@
 <script>
     import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
     import useIntersectionObserver from '../composables/useIntersectionObserver'
+    import ImageItem from '../components/ImageItem.vue'
 
     export default {
         name: 'CategoriesPhotoCard',
         props: {
             picture: Object
         },
+				components: {
+            ImageItem
+				},
         setup (props) {
             const photo = ref({})
             const el = ref(null)
             const { observe, unobserve, isShown } = useIntersectionObserver()
 
             const pictureImageCode = computed(() => {
-                return props.picture.imageCode
+                const a = props.picture.imageCode
+								return `https://drive.google.com/uc?export=view&id=${a}`
             })
             const pictureTitle = computed(() => {
                 return props.picture.title
@@ -72,10 +77,3 @@
         }
     }
 </script>
-
-<style scoped>
-	.imgStyle {
-		/*height: 300px;*/
-		max-width: 100%;
-	}
-</style>

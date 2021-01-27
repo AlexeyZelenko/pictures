@@ -135,7 +135,8 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
+	@import './src/scss/_variables.scss';
 	.sidenav2 {
 		height: 100%;
 		width: 0;
@@ -143,7 +144,7 @@
 		z-index: 9999;
 		top: 0;
 		right: 0;
-		background-color: #212;
+		background-color: $background-color-admin;
 		overflow-x: hidden;
 		transition: 0.5s;
 		padding-top: 60px;

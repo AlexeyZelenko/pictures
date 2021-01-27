@@ -153,7 +153,7 @@ export default {
 		}
 		.fullscreen-bg {
 			height: 200px;
-			background: url('./assets/jumbotron.jpg') center center / cover no-repeat;
+			background: url('./assets/titletelephone.jpg') center center / cover no-repeat;
 			padding-top: 100%;
 		}
 		.fullscreen-bg__video {
