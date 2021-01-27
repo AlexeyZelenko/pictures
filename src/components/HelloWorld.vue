@@ -5,21 +5,17 @@
 	>
 		<div
 				class="row row-cols-1 row-cols-md-2 g-4 "
-				data-masonry='{"percentPosition": true }'
+				v-for="picture in arrayPictures"
+				:key="picture.key"
+				style="justify-content: center"
 		>
-			<div
-					class="col"
-					v-for="picture in arrayPictures"
-					:key="picture.key"
-			>
-				<div class="col">
-					<router-link
-							style="text-decoration: none"
-							:to="{ name: 'edit_picture', params: { id: picture.key }}"
-					>
-						<CategoriesPhotoCard :picture="picture"/>
-					</router-link>
-				</div>
+			<div class="col p-4">
+				<router-link
+						style="text-decoration: none"
+						:to="{ name: 'edit_picture', params: { id: picture.key }}"
+				>
+					<CategoriesPhotoCard :picture="picture"/>
+				</router-link>
 			</div>
 		</div>
 	</div>
