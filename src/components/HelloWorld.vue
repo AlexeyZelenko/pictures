@@ -1,4 +1,9 @@
 <template>
+	<div id="nav">
+		<button @click="sh = !sh">{{ sh }}</button>
+		<p v-if="sh">Про мене</p>
+		<about v-if="sh" />
+	</div>
 	<div
 			class="container"
 			style="margin-top: 50px"
@@ -9,13 +14,7 @@
 				:key="picture.key"
 				style="justify-content: center"
 		>
-			<div class="col p-4" v-cloak>
-<!--				<router-link-->
-<!--						style="text-decoration: none"-->
-<!--						:to="{ name: 'edit_picture', params: { id: picture.key }}"-->
-<!--				>-->
-<!--					<CategoriesPhotoCard :picture="picture"/>-->
-<!--				</router-link>-->
+			<div class="col p-4">
 				<CategoriesPhotoCard :picture="picture"/>
 			</div>
 		</div>
@@ -28,12 +27,15 @@ import { db } from '../main'
 import firebase from 'firebase/app'
 import 'firebase/storage'
 import CategoriesPhotoCard from './CategoriesPhotoCard.vue'
+import { defineAsyncComponent, defineComponent } from "vue"
 
-export default {
+export default defineComponent({
   name: 'HelloWorld',
 	components: {
-			CategoriesPhotoCard
+			CategoriesPhotoCard,
+      about: defineAsyncComponent(() => import("../views/About.vue"))
 	},
+	data: () => ({ sh: false }),
 	setup () {
         const arrayPictures = ref([])
 
@@ -55,7 +57,7 @@ export default {
           arrayPictures,
       }
   }
-}
+})
 </script>
 
 

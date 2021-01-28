@@ -91,7 +91,6 @@
 
 <script>
 import { defineAsyncComponent } from 'vue'
-import Multilingual from './components/Multilingual.vue'
 import SwitchLanguage from './components/SwitchLanguage.vue'
 import HelloWorld from './components/HelloWorld.vue'
 const google = defineAsyncComponent(() => import('./components/google.vue'))
@@ -100,7 +99,6 @@ const Footer = defineAsyncComponent(() => import('./components/Footer.vue'))
 export default {
   name: 'App',
   components: {
-		Multilingual,
 		SwitchLanguage,
     HelloWorld,
 		google,

@@ -11,12 +11,6 @@
 				<div class="form-group">
 					<label>Назва картини</label>
 					<p style="color: blueviolet">{{picture.title}}</p>
-					<!--          <input-->
-					<!--            type="text"-->
-					<!--            class="form-control"-->
-					<!--            v-model="photo.name"-->
-					<!--            required-->
-					<!--          >-->
 				</div>
 
 				<div

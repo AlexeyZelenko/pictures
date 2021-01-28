@@ -1,5 +1,7 @@
 <template>
-	<HelloWorld/>
+	<keep-alive>
+		<HelloWorld/>
+	</keep-alive>
 </template>
 
 <script>
