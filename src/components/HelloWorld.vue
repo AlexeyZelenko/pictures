@@ -1,9 +1,21 @@
 <template>
-	<div id="nav">
-		<button @click="sh = !sh">{{ sh }}</button>
-		<p v-if="sh">Про мене</p>
-		<about v-if="sh" />
-	</div>
+<!--	Динамический компонент-->
+<!--	<div>-->
+<!--		<h1>O_o</h1>-->
+<!--		<component :is="name"/>-->
+<!--		<button @click="onClick">Click me !</button>-->
+<!--	</div>-->
+
+
+<!--	Ленивый компонент-->
+<!--	<div id="nav">-->
+<!--		<button @click="sh = !sh">{{ sh }}</button>-->
+<!--		<p v-if="sh">Про мене</p>-->
+<!--		<about v-if="sh" />-->
+<!--	</div>-->
+
+
+
 	<div
 			class="container"
 			style="margin-top: 50px"
@@ -22,7 +34,7 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { db } from '../main'
 import firebase from 'firebase/app'
 import 'firebase/storage'
@@ -33,10 +45,21 @@ export default defineComponent({
   name: 'HelloWorld',
 	components: {
 			CategoriesPhotoCard,
-      about: defineAsyncComponent(() => import("../views/About.vue"))
+      about: defineAsyncComponent(() => import("../views/About.vue")),
+      // name: defineAsyncComponent(() => import("./DynamicComponent.vue"))
 	},
-	data: () => ({ sh: false }),
+	data: () => ({
+      boardFields: [],
+			sh: false
+	}),
 	setup () {
+      const isShow = ref(false);
+      const name = computed (() => isShow.value ? defineAsyncComponent(() => import("../views/AddPicture.vue")) : '')
+
+
+      const onClick = () => {
+          isShow.value = !isShow.value;
+      }
         const arrayPictures = ref([])
 
         db.collection('pictures').onSnapshot((snapshotChange) => {
@@ -55,6 +78,9 @@ export default defineComponent({
         })
       return {
           arrayPictures,
+          onClick,
+          name,
+          isShow
       }
   }
 })
@@ -95,6 +121,7 @@ export default defineComponent({
 			display: none;
 		}
 	}
+
 </style>
 
 
