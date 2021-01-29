@@ -34,18 +34,18 @@
 </template>
 
 <script>
-import { ref, reactive, computed } from 'vue'
 import { db } from '../main'
 import firebase from 'firebase/app'
 import 'firebase/storage'
 import CategoriesPhotoCard from './CategoriesPhotoCard.vue'
-import { defineAsyncComponent, defineComponent } from "vue"
+import { defineAsyncComponent, defineComponent, ref, reactive, computed } from "vue"
 
 export default defineComponent({
   name: 'HelloWorld',
 	components: {
 			CategoriesPhotoCard,
       about: defineAsyncComponent(() => import("../views/About.vue")),
+      MyComponent:defineAsyncComponent(() => import("../views/AddPicture.vue"))
 	},
 	data: () => ({
       boardFields: [],
@@ -53,7 +53,7 @@ export default defineComponent({
 	}),
 	setup () {
       const isShow = ref(false);
-      const name = computed (() => isShow.value ? defineAsyncComponent(() => import("../views/AddPicture.vue")) : '')
+      const name = computed (() => isShow.value ? 'MyComponent' : '')
 
 
       const onClick = () => {

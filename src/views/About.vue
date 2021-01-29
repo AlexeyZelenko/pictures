@@ -34,6 +34,9 @@
 							{{ $t('study5.value', { value: 'Живе в Україні м. Черкаси' }) }}
 						</small></p>
 					</div>
+					<div class="theme-provider">
+    					<input type="color" v-model="theme.color">
+				</div>
 				</div>
 			</div>
 		</div>
@@ -45,11 +48,15 @@ import {ref, defineComponent, computed } from 'vue'
 export default defineComponent({
     name: "About",
     setup() {
+        const theme = ref({
+            color: 'red'
+        })
 			const myColor = ref( '#2c790d')
 			const colorBind = computed(() => myColor.value)
 			return {
 					myColor,
-          colorBind
+          colorBind,
+          theme
 			}
     },
     data() {
@@ -65,13 +72,16 @@ export default defineComponent({
 
 <style lang="scss">
 	.card-title {
-		color: v-bind(colorBind);
+		color: v-bind('theme.color');
 	}
 	.card-text {
 		color: v-bind(color);
 
 		/* expressions (wrap in quotes) */
 		font-size: v-bind('font.size');
+	}
+	.theme-provider {
+		--color-primary: var(--:theme.color);
 	}
 
 </style>
