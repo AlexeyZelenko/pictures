@@ -46,7 +46,6 @@ export default defineComponent({
 	components: {
 			CategoriesPhotoCard,
       about: defineAsyncComponent(() => import("../views/About.vue")),
-      // name: defineAsyncComponent(() => import("./DynamicComponent.vue"))
 	},
 	data: () => ({
       boardFields: [],

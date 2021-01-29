@@ -15,7 +15,6 @@
 						</div>
 						<h5
 								class="card-title mt-md-2"
-								style="color: #2c790d"
 						>
 							Roman Kravchuk
 						</h5>
@@ -42,11 +41,37 @@
 </template>
 
 <script>
-export default {
-		name: "About"
-}
+import {ref, defineComponent, computed } from 'vue'
+export default defineComponent({
+    name: "About",
+    setup() {
+			const myColor = ref( '#2c790d')
+			const colorBind = computed(() => myColor.value)
+			return {
+					myColor,
+          colorBind
+			}
+    },
+    data() {
+        return {
+            color: 'black',
+            font: {
+                size: '1rem'
+            }
+        }
+    }
+})
 </script>
 
-<style scoped>
+<style lang="scss">
+	.card-title {
+		color: v-bind(colorBind);
+	}
+	.card-text {
+		color: v-bind(color);
+
+		/* expressions (wrap in quotes) */
+		font-size: v-bind('font.size');
+	}
 
 </style>
